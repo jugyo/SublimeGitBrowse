@@ -9,12 +9,10 @@ class CgitBrowseCommand(sublime_plugin.TextCommand):
                 or self.view.settings().get('cgit').get('base_url') == None:
             sublime.message_dialog("settings for cgit does not exists")
 
-        base_url                = self.view.settings().get('cgit').get('base_url')
-        project_dir             = sublime.active_window().folders()[0]
-        file_name               = self.view.file_name()
-        file_name_from_project  = file_name.replace(project_dir, '')
-        branch                  = commands.getoutput("git rev-parse --abbrev-ref HEAD")
-        (row, col)              = self.view.rowcol(self.view.sel()[0].end())
-        url                     = base_url + '/tree' + file_name_from_project + '?h=' + branch + '#n' + str(row + 1)
+        base_url   = self.view.settings().get('cgit').get('base_url')
+        file_path  = self.view.file_name().replace(sublime.active_window().folders()[0], '')
+        branch     = commands.getoutput("git rev-parse --abbrev-ref HEAD")
+        (row, col) = self.view.rowcol(self.view.sel()[0].end())
+        url        = base_url + '/tree' + file_path + '?h=' + branch + '#n' + str(row + 1)
 
         webbrowser.open(url)
