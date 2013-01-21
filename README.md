@@ -11,7 +11,7 @@ Add setting to `Preferences.sublime-settings`:
 {
   "cgit":
   {
-    "base_url": "http://example.com/"
+    "base_url": "http://hjemli.net/git/cgit"
   }
 }
 ```
@@ -23,7 +23,7 @@ or `.sublime-project`:
   "settings": {
     "cgit":
     {
-      "base_url": "http://example.com/"
+      "base_url": "http://hjemli.net/git/cgit"
     }
   }
 }
