@@ -1,6 +1,6 @@
 [
     {
-        "caption": "CGit: browse",
-        "command": "cgit_browse"
+        "caption": "Git: Browse",
+        "command": "git_browse"
     }
 ]
