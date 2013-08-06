@@ -23,7 +23,7 @@ class GitBrowseCommand(sublime_plugin.TextCommand):
         branch     = commands.getoutput("git rev-parse --abbrev-ref HEAD")
         url = re.sub(r':branch', branch, url)
 
-        (row, col) = self.view.rowcol(self.view.sel()[0].end())
+        (row, col) = self.view.rowcol(min(self.view.sel()[0].begin(), self.view.sel()[0].end()))
         url = re.sub(r':line', str(row + 1), url)
 
         webbrowser.open(url)
